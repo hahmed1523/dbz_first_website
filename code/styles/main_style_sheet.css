@@ -1,0 +1,90 @@
+body {
+    background-color:rgb(181,12,0);
+    color: goldenrod;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+
+h3{
+    text-align: center;
+}
+
+#container{
+    width:800px;
+    margin:auto;
+    background-color: rgb(255, 198, 133);
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    border: 10px solid rgb(173, 113, 0);
+    color:black;
+
+}
+
+#main_img{
+    width:400px;
+    display:block;
+    margin:auto;               
+    
+}
+
+.face_img{
+    width:125px;
+    border-radius:100px;
+    float:left;
+    margin-right: 10px;
+
+    
+}
+
+#goku-info p{
+    padding-top:20px;
+}
+
+#vegeta-info{
+    
+    clear:left;
+}
+
+#footer{
+    margin-top: 40px;
+    clear:both;
+    text-align:center;
+}
+
+#header{
+
+    text-align:center;
+
+}
+
+a {
+    color:rgb(181,12,0);
+    text-decoration: none;
+}
+
+#form-container{
+    width: 500px;
+    margin:auto;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    background-color: rgb(243, 224, 203);
+    border: 1px solid rgb(181,12,0);
+    text-align:center;
+    padding:10px;
+}
+
+#form-container label{
+    font-size:15px;
+    
+}
+
+#form-container button{
+    margin-top:20px;
+}
+
+#result-img{
+    width: 300px;
+    display: block;
+    margin:auto;
+}

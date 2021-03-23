@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Awesome DBZ</title>
+        <link rel="stylesheet" href="styles/main_style_sheet.css" type="text/css">
+
+    </head>
+
+    <body>
+        <div id="header">
+        <h1>Dragonball Z</h1>
+        </div>
+        <div id="container">
+        <img id="main_img" src="images/main_dbz.jpg" alt="Main DBZ Image">
+
+        <p>Dragonball Z is a Japanese anime television series produced by Toei Animation. 
+            It is the sequel to Dragon Ball and adapts the latter 325 chapters of the original 
+            519-chapter Dragon Ball manga series created by Akira Toriyama which ran in Weekly 
+            Shōnen Jump from 1984 to 1995. Dragon Ball Z aired in Japan on Fuji TV from April 1989 
+            to January 1996, before getting dubbed in territories including the United States, Canada, 
+            Australia, Europe, Asia, India and Latin America. It was broadcast in at least 81 countries 
+            worldwide. It is part of the Dragon Ball media franchise. <a href="https://en.wikipedia.org/wiki/Dragon_Ball_Z" target="_blank">Read More..</a></p>
+
+        <h2>Heroes</h2>
+        
+        <div id="goku-info">
+        <h3>Goku</h3>
+
+        <img class="face_img" src="images/goku_face.jpg" alt="Goku's Face">
+
+        <p>Goku is a Saiyan originally sent to destroy Earth as an infant. 
+            However, a head injury at an early age alters his memory, 
+            ridding him of his initial destructive nature and allowing him to grow up to become one 
+            of Earth's greatest defenders. He constantly strives and trains to be the greatest warrior 
+            possible, which has kept the Earth and the universe safe from destruction many times. <a href="https://dragonball.fandom.com/wiki/Goku" target="_blank">Read More..</a></p>
+        </div>
+        
+        <div id="vegeta-info">
+        <h3>Vegeta</h3>
+
+        <img class="face_img" src="images/vegeta_face.jpg" alt="Vegeta's Face">
+
+        <p>Regal, egotistical, and full of pride, Vegeta was once a ruthless, 
+            cold-blooded warrior and outright killer, but later abandons his role in the Frieza Force,
+             instead opting to remain and live on Earth. His character evolves from villain, to anti-hero, 
+             then to hero through the course of the series, repeatedly fighting alongside the universe's most 
+             powerful warriors in order to protect his new home and surpass Goku in power. <a href="https://dragonball.fandom.com/wiki/Vegeta" target="_blank">Read More..</a></p>
+        </div>
+        
+        <div id="form-container">
+
+            <h2>Complete The Form Below!</h2>
+
+            <form id = "dbz-form">
+                <input type="text" placeholder="Enter your name" required>
+                
+                <h4>Who is your favorite DBZ hero?</h4>
+
+                <label for="goku-radio">
+                    <input id="goku-radio" value="goku" type="radio" name="heroes">
+                    Goku
+                </label>
+
+                <label for="gohan-radio">
+                    <input id="gohan-radio" value="gohan" type="radio" name="heroes">
+                    Gohan
+                </label>
+
+                <label for="vegeta-radio">
+                    <input id="vegeta-radio" value="vegeta" type="radio" name="heroes">
+                    Vegeta
+                </label> <br>
+                
+                <h4>Your Favorite Storyline</h4>
+                <label for="saiyan-check">
+                    <input id="saiyan-check" value="saiyan" type="radio" name="story">
+                    Saiyan Saga
+                </label>
+
+                <label for="freiza-check">
+                    <input id="freiza-check" value="freiza" type="radio" name="story">
+                    Freiza Saga
+                </label>
+
+                <label for="android-check">
+                    <input id="andriod-check" value="android" type="radio" name="story">
+                    Android Saga
+                </label>
+
+                <label for="cell-check">
+                    <input id="cell-check" value="cell" type="radio" name="story">
+                    Cell Saga
+                </label>
+
+                <label for="buu-check">
+                    <input id="buu-check" value="buu" type="radio" name="story">
+                    Buu Saga
+                </label><br>
+
+                <button type="submit">Submit</button>
+
+            </form>
+
+
+        </div>       
+
+        <div id = "result-image-container">
+            <img id = "result-img" src="#">
+        </div>
+
+        </div>
+        <div id="footer">
+            <p>My DBZ Page &#169;</p>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            var images = {
+                "goku_saiyan_saga" : "images/goku_saiyan_saga.jpg",
+                "goku_freiza_saga" : "images/goku_freiza_saga.jpg",
+                "goku_android_saga" : "images/goku_android_saga.jpg",
+                "goku_cell_saga" : "images/goku_cell_saga.jpg",
+                "goku_buu_saga" : "images/goku_buu_saga.jpg",
+                "gohan_saiyan_saga" : "images/gohan_saiyan_saga.jpg",
+                "gohan_freiza_saga" : "images/gohan_freiza_saga.jpg",
+                "gohan_android_saga" : "images/gohan_android_saga.jpg",
+                "gohan_cell_saga" : "images/gohan_cell_saga.jpg",
+                "gohan_buu_saga" : "images/gohan_buu_saga.jpg",
+                "vegeta_saiyan_saga" : "images/vegeta_saiyan_saga.jpg",
+                "vegeta_freiza_saga" : "images/vegeta_freiza_saga.jpg",
+                "vegeta_android_saga" : "images/vegeta_android_saga.jpg",
+                "vegeta_cell_saga" : "images/vegeta_cell_saga.jpg",
+                "vegeta_buu_saga" : "images/vegeta_buu_saga.jpg",
+
+            };
+
+            // Hide result image when page loads
+            $("#result-img").hide();
+
+            // When user submits the form, then show a picture of the character in that saga
+            $("#dbz-form").on("submit", function(event){
+                event.preventDefault() // prevent reloading page from form submission
+                var hero = $('input[name="heroes"]:checked').val();
+                var story = $('input[name="story"]:checked').val();
+                var picName = hero + "_" + story + "_saga"
+                console.log("Your hero is: " + hero + "\nYour story is: " + story);
+                console.log(picName);
+                console.log(images[picName]);
+                var $resultImage = $("#result-img");
+                $resultImage.attr("src", images[picName]);
+                $resultImage.show();
+                
+            });
+
+
+
+
+        </script>
+    </body>
+</html>
